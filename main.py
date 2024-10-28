@@ -2,7 +2,6 @@ from fastapi import FastAPI, Path, status, Body, HTTPException
 from pydantic import BaseModel
 from typing import List
 
-# uvicorn main:app
 app = FastAPI()
 
 users = []
