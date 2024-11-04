@@ -20,7 +20,10 @@ def get_users() -> List[User]:
 
 @app.post("/user/{username}/{age}")
 def create_user(username: str, age: int) -> User:
-    user_id = len(users) + 1
+    if users:
+        user_id = max(users, key=lambda x: int(x.id)).id + 1
+    else:
+        user_id = 1
     new_user = User(id=user_id, username=username, age=age)
     users.append(new_user)
     return new_user
